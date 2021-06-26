@@ -16,4 +16,12 @@ export class ContactsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hideContacts() {
+    this.contacts = [];
+  }
+
+  showContacts() {
+    this.contacts = CONTACTS;
+  }
+
 }
