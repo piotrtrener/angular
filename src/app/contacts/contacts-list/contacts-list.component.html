@@ -1,1 +1,22 @@
-<p>contacts-list works!</p>
+<table *ngIf="contacts.length > 0; else noContactsAlert" class="table table-striped table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Lp.</th>
+            <th>Nazwisko</th>
+            <th>Imię</th>
+            <th>Nr telefonu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ contact.surname }}</td>
+            <td>{{ contact.firstName }}</td>
+            <td>{{ contact.phoneNumber }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noContactsAlert>
+    <p class="no-contacts">W obecnej chwili nie masz kontaktów do prezentacji.</p>
+</ng-template>
