@@ -30,4 +30,12 @@ export class ContactsListComponent implements OnInit {
     this.contactsService.getContacts().subscribe(contacts => {this.contacts = contacts;})
   }
 
+  removeContact(contact: ContactModel, event: Event) {
+    event.stopPropagation();
+    const conf = confirm('Czy usunąć ten rekord?');
+    if(conf) {
+      this.contactsService.removeContact(contact.id).subscribe(()=>this.loadContacts());
+    }
+  }
+
 }
